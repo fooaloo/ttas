@@ -2,16 +2,19 @@
 <html>
 <head>
     <title>GitHub Proxy</title>
+    <!-- Add a favicon to prevent 404 error -->
+    <link rel="icon" href="data:,">
 </head>
 <body>
     <h1>Web Proxy</h1>
     <input type="url" id="url" placeholder="https://example.com">
-    <button onclick="fetchUrl()">Fetch</button>
+    <button id="fetchButton">Fetch</button>
     <pre id="result"></pre>
 
     <script>
+        // Properly defined function
         async function fetchUrl() {
-            const url = document.getElementById('url").value;
+            const url = document.getElementById("url").value;
             const result = document.getElementById("result");
             
             if (!url) {
@@ -32,6 +35,9 @@
                 result.textContent = `Error: ${error.message}`;
             }
         }
+
+        // Modern event listener instead of onclick attribute
+        document.getElementById("fetchButton").addEventListener("click", fetchUrl);
     </script>
 </body>
 </html>
